@@ -1,0 +1,263 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 940" width="1400" height="940" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="a-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker>
+    <marker id="a-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7c3aed"/></marker>
+    <marker id="a-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d97706"/></marker>
+    <marker id="a-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#16a34a"/></marker>
+    <marker id="a-cyan" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0891b2"/></marker>
+    <marker id="a-slate" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#475569"/></marker>
+  </defs>
+
+  <!-- background -->
+  <rect x="0" y="0" width="1400" height="940" fill="#ffffff"/>
+
+  <!-- title -->
+  <text x="40" y="48" font-size="26" font-weight="700" fill="#0f172a">Project 1: Jenkins + Docker CI/CD on my home lab</text>
+  <text x="40" y="76" font-size="15" fill="#475569">Follow the numbers ① → ⑧. The coloured circle on each step shows which module taught it (legend at the bottom).</text>
+
+  <!-- ===================== ZONE: MAC ===================== -->
+  <rect x="30" y="100" width="300" height="610" rx="16" fill="#f8fafc" stroke="#94a3b8" stroke-width="2"/>
+  <text x="50" y="132" font-size="18" font-weight="700" fill="#0f172a">💻 MY MAC</text>
+  <text x="50" y="152" font-size="13" fill="#475569">developer machine (macOS)</text>
+
+  <!-- VS Code box -->
+  <rect x="50" y="172" width="260" height="80" rx="10" fill="#ffffff" stroke="#7c3aed" stroke-width="2"/>
+  <text x="66" y="198" font-size="15" font-weight="700" fill="#0f172a">VS Code</text>
+  <text x="66" y="219" font-size="13" fill="#334155">edit src/main/webapp/index.jsp</text>
+  <text x="66" y="238" font-size="13" fill="#334155">(change the heading text)</text>
+  <circle cx="292" cy="190" r="13" fill="#7c3aed"/><text x="292" y="195" font-size="13" font-weight="700" fill="#ffffff" text-anchor="middle">2</text>
+
+  <!-- step 1 label -->
+  <circle cx="46" cy="172" r="15" fill="#0f172a"/><text x="46" y="178" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle">1</text>
+
+  <!-- arrow vscode -> terminal -->
+  <line x1="180" y1="252" x2="180" y2="288" stroke="#334155" stroke-width="2" marker-end="url(#a-gray)"/>
+
+  <!-- Terminal git box -->
+  <rect x="50" y="292" width="260" height="92" rx="10" fill="#0f172a" stroke="#7c3aed" stroke-width="2"/>
+  <text x="66" y="318" font-size="15" font-weight="700" fill="#ffffff">Terminal (Git)</text>
+  <text x="66" y="340" font-size="13" fill="#e2e8f0" font-family="Menlo, monospace">git add .</text>
+  <text x="66" y="358" font-size="13" fill="#e2e8f0" font-family="Menlo, monospace">git commit -m "..."</text>
+  <text x="66" y="376" font-size="13" fill="#e2e8f0" font-family="Menlo, monospace">git push origin main</text>
+  <circle cx="292" cy="310" r="13" fill="#7c3aed"/><text x="292" y="315" font-size="13" font-weight="700" fill="#ffffff" text-anchor="middle">2</text>
+
+  <!-- Safari box -->
+  <rect x="50" y="470" width="260" height="88" rx="10" fill="#ffffff" stroke="#0891b2" stroke-width="2"/>
+  <text x="66" y="496" font-size="15" font-weight="700" fill="#0f172a">Safari (browser)</text>
+  <text x="66" y="517" font-size="12.5" fill="#334155" font-family="Menlo, monospace">localhost:8082/</text>
+  <text x="66" y="535" font-size="12.5" fill="#334155" font-family="Menlo, monospace">  jenkins-docker-cicd/</text>
+  <text x="66" y="552" font-size="12" fill="#64748b">Jenkins UI: localhost:8080</text>
+  <circle cx="46" cy="470" r="15" fill="#0f172a"/><text x="46" y="476" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle">8</text>
+
+  <!-- arrow safari -> ssh -->
+  <line x1="180" y1="558" x2="180" y2="594" stroke="#334155" stroke-width="2" marker-end="url(#a-gray)"/>
+
+  <!-- ssh -L box -->
+  <rect x="50" y="598" width="260" height="92" rx="10" fill="#0f172a" stroke="#dc2626" stroke-width="2"/>
+  <text x="66" y="624" font-size="15" font-weight="700" fill="#ffffff">Terminal (SSH tunnel)</text>
+  <text x="66" y="646" font-size="12.5" fill="#e2e8f0" font-family="Menlo, monospace">ssh -L 8082:localhost:8082</text>
+  <text x="66" y="664" font-size="12.5" fill="#e2e8f0" font-family="Menlo, monospace">ssh -L 8080:localhost:8080</text>
+  <text x="66" y="681" font-size="11.5" fill="#94a3b8">keep this window open = tunnel open</text>
+  <circle cx="292" cy="616" r="13" fill="#dc2626"/><text x="292" y="621" font-size="13" font-weight="700" fill="#ffffff" text-anchor="middle">1</text>
+  <circle cx="264" cy="616" r="13" fill="#64748b"/><text x="264" y="621" font-size="13" font-weight="700" fill="#ffffff" text-anchor="middle">0</text>
+
+  <!-- ===================== ZONE: GITHUB ===================== -->
+  <rect x="370" y="100" width="240" height="300" rx="16" fill="#faf5ff" stroke="#7c3aed" stroke-width="2"/>
+  <text x="390" y="132" font-size="18" font-weight="700" fill="#0f172a">☁️ GITHUB</text>
+  <text x="390" y="152" font-size="13" fill="#475569">the shared "recipe book"</text>
+  <rect x="388" y="168" width="204" height="214" rx="10" fill="#ffffff" stroke="#c4b5fd" stroke-width="1.5"/>
+  <text x="402" y="190" font-size="12.5" font-weight="700" fill="#0f172a">rharsh22/</text>
+  <text x="402" y="207" font-size="12.5" font-weight="700" fill="#0f172a">Jenkins-docker-cicd</text>
+  <text x="402" y="230" font-size="12.5" fill="#334155" font-family="Menlo, monospace">├─ Jenkinsfile</text>
+  <text x="402" y="249" font-size="12.5" fill="#334155" font-family="Menlo, monospace">├─ Dockerfile</text>
+  <text x="402" y="268" font-size="12.5" fill="#334155" font-family="Menlo, monospace">├─ pom.xml</text>
+  <text x="402" y="287" font-size="12.5" fill="#334155" font-family="Menlo, monospace">├─ src/main/webapp/</text>
+  <text x="402" y="306" font-size="12.5" fill="#334155" font-family="Menlo, monospace">│   index.jsp</text>
+  <text x="402" y="325" font-size="12.5" fill="#334155" font-family="Menlo, monospace">├─ .gitignore</text>
+  <text x="402" y="344" font-size="12.5" fill="#334155" font-family="Menlo, monospace">└─ README.md</text>
+  <text x="402" y="370" font-size="11.5" fill="#7c3aed">branch: main · public repo</text>
+
+  <!-- arrow ② git push : mac terminal -> github -->
+  <path d="M310,338 C340,338 340,300 386,300" fill="none" stroke="#7c3aed" stroke-width="3" marker-end="url(#a-purple)"/>
+  <circle cx="340" cy="356" r="15" fill="#0f172a"/><text x="340" y="362" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle">2</text>
+  <text x="318" y="392" font-size="12.5" font-weight="700" fill="#7c3aed">git push</text>
+
+  <!-- ===================== ZONE: SERVER ===================== -->
+  <rect x="650" y="100" width="720" height="610" rx="16" fill="#f8fafc" stroke="#334155" stroke-width="2.5"/>
+  <text x="690" y="132" font-size="18" font-weight="700" fill="#0f172a">🖥️ HOME LAB SERVER</text>
+  <text x="900" y="132" font-size="13" fill="#475569">Ubuntu 26.04 · user harsh-lab · reached over SSH</text>
+
+  <!-- UFW wall -->
+  <rect x="650" y="150" width="14" height="560" fill="#fecaca"/>
+  <rect x="650" y="612" width="14" height="44" fill="#16a34a"/>
+  <text x="0" y="0" font-size="12.5" font-weight="700" fill="#b91c1c" transform="translate(644,490) rotate(-90)" text-anchor="middle">UFW FIREWALL: deny all incoming</text>
+  <text x="657" y="606" font-size="11" font-weight="700" fill="#15803d" text-anchor="middle">22</text>
+  <circle cx="657" cy="168" r="13" fill="#64748b"/><text x="657" y="173" font-size="13" font-weight="700" fill="#ffffff" text-anchor="middle">0</text>
+
+  <!-- Jenkins box -->
+  <rect x="690" y="150" width="660" height="320" rx="12" fill="#fff7ed" stroke="#dc2626" stroke-width="2"/>
+  <text x="708" y="177" font-size="16" font-weight="700" fill="#0f172a">Jenkins 2.580.1</text>
+  <text x="840" y="177" font-size="12.5" fill="#475569">job: module5-pipeline · runs as Linux user "jenkins" · Java 21</text>
+  <circle cx="1330" cy="171" r="13" fill="#dc2626"/><text x="1330" y="176" font-size="13" font-weight="700" fill="#ffffff" text-anchor="middle">1</text>
+
+  <!-- poll scm pill -->
+  <rect x="708" y="190" width="400" height="34" rx="17" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+  <text x="724" y="212" font-size="12.5" fill="#92400e"><tspan font-weight="700">Poll SCM</tspan> <tspan font-family="Menlo, monospace">H/2 * * * *</tspan>  → "any new commit?"</text>
+  <circle cx="1090" cy="207" r="12" fill="#d97706"/><text x="1090" y="212" font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle">6</text>
+
+  <!-- stage boxes -->
+  <!-- stage 1 -->
+  <rect x="705" y="248" width="145" height="150" rx="10" fill="#ffffff" stroke="#7c3aed" stroke-width="2"/>
+  <text x="716" y="270" font-size="11.5" fill="#64748b">stage 1</text>
+  <text x="716" y="290" font-size="15" font-weight="700" fill="#0f172a">Checkout</text>
+  <text x="716" y="312" font-size="11.5" fill="#334155" font-family="Menlo, monospace">checkout scm</text>
+  <text x="716" y="336" font-size="11.5" fill="#475569">clones the repo</text>
+  <text x="716" y="352" font-size="11.5" fill="#475569">into the job's</text>
+  <text x="716" y="368" font-size="11.5" fill="#475569">workspace</text>
+  <circle cx="832" cy="266" r="12" fill="#7c3aed"/><text x="832" y="271" font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle">2</text>
+
+  <!-- stage 2 -->
+  <rect x="868" y="248" width="145" height="150" rx="10" fill="#ffffff" stroke="#2563eb" stroke-width="2"/>
+  <text x="879" y="270" font-size="11.5" fill="#64748b">stage 2</text>
+  <text x="879" y="290" font-size="15" font-weight="700" fill="#0f172a">Build (Maven)</text>
+  <text x="879" y="312" font-size="11.5" fill="#334155" font-family="Menlo, monospace">mvn -B clean</text>
+  <text x="879" y="327" font-size="11.5" fill="#334155" font-family="Menlo, monospace">  package</text>
+  <text x="879" y="350" font-size="11.5" fill="#475569">pom.xml + src/</text>
+  <text x="879" y="366" font-size="11.5" fill="#475569">→ target/</text>
+  <text x="879" y="382" font-size="11" fill="#1d4ed8" font-family="Menlo, monospace">jenkins-docker-cicd.war</text>
+  <circle cx="995" cy="266" r="12" fill="#2563eb"/><text x="995" y="271" font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle">3</text>
+
+  <!-- stage 3 -->
+  <rect x="1031" y="248" width="145" height="150" rx="10" fill="#ffffff" stroke="#0891b2" stroke-width="2"/>
+  <text x="1042" y="270" font-size="11.5" fill="#64748b">stage 3</text>
+  <text x="1042" y="290" font-size="15" font-weight="700" fill="#0f172a">Image</text>
+  <text x="1042" y="312" font-size="11.5" fill="#334155" font-family="Menlo, monospace">docker build</text>
+  <text x="1042" y="327" font-size="11.5" fill="#334155" font-family="Menlo, monospace"> -t jenkins-app:</text>
+  <text x="1042" y="342" font-size="11.5" fill="#334155" font-family="Menlo, monospace"> $BUILD_NUMBER .</text>
+  <text x="1042" y="366" font-size="11.5" fill="#475569">reads the</text>
+  <text x="1042" y="382" font-size="11.5" fill="#475569">Dockerfile</text>
+  <circle cx="1158" cy="266" r="12" fill="#0891b2"/><text x="1158" y="271" font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle">4</text>
+
+  <!-- stage 4 -->
+  <rect x="1194" y="248" width="145" height="150" rx="10" fill="#ffffff" stroke="#16a34a" stroke-width="2"/>
+  <text x="1205" y="270" font-size="11.5" fill="#64748b">stage 4</text>
+  <text x="1205" y="290" font-size="15" font-weight="700" fill="#0f172a">Deploy</text>
+  <text x="1205" y="312" font-size="11" fill="#334155" font-family="Menlo, monospace">docker rm -f</text>
+  <text x="1205" y="326" font-size="11" fill="#334155" font-family="Menlo, monospace"> jenkins-app</text>
+  <text x="1205" y="340" font-size="11" fill="#334155" font-family="Menlo, monospace"> || true</text>
+  <text x="1205" y="360" font-size="11" fill="#334155" font-family="Menlo, monospace">docker run -d</text>
+  <text x="1205" y="374" font-size="11" fill="#334155" font-family="Menlo, monospace"> -p 127.0.0.1:</text>
+  <text x="1205" y="388" font-size="11" fill="#334155" font-family="Menlo, monospace">   8082:8080</text>
+  <circle cx="1321" cy="266" r="12" fill="#16a34a"/><text x="1321" y="271" font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle">5</text>
+
+  <!-- stage arrows -->
+  <line x1="850" y1="300" x2="866" y2="300" stroke="#16a34a" stroke-width="3" marker-end="url(#a-green)"/>
+  <line x1="1013" y1="300" x2="1029" y2="300" stroke="#16a34a" stroke-width="3" marker-end="url(#a-green)"/>
+  <line x1="1176" y1="300" x2="1192" y2="300" stroke="#16a34a" stroke-width="3" marker-end="url(#a-green)"/>
+
+  <!-- step number circles on stages -->
+  <circle cx="777" cy="420" r="15" fill="#0f172a"/><text x="777" y="426" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle">4</text>
+  <circle cx="940" cy="420" r="15" fill="#0f172a"/><text x="940" y="426" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle">5</text>
+  <circle cx="1103" cy="420" r="15" fill="#0f172a"/><text x="1103" y="426" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle">6</text>
+  <circle cx="1266" cy="420" r="15" fill="#0f172a"/><text x="1266" y="426" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle">7</text>
+
+  <text x="708" y="456" font-size="12" fill="#475569">workspace: <tspan font-family="Menlo, monospace">/var/lib/jenkins/workspace/module5-pipeline</tspan></text>
+
+  <!-- ===================== DOCKER ENGINE ===================== -->
+  <rect x="690" y="490" width="660" height="212" rx="12" fill="#ecfeff" stroke="#0891b2" stroke-width="2"/>
+  <text x="708" y="516" font-size="16" font-weight="700" fill="#0f172a">Docker Engine 29.8</text>
+  <text x="1000" y="516" font-size="12" fill="#475569">"jenkins" user is in the "docker" group</text>
+
+  <!-- images stack -->
+  <rect x="716" y="548" width="220" height="118" rx="8" fill="#ffffff" stroke="#0891b2" stroke-width="1.5"/>
+  <rect x="710" y="542" width="220" height="118" rx="8" fill="#ffffff" stroke="#0891b2" stroke-width="1.5"/>
+  <text x="724" y="566" font-size="13.5" font-weight="700" fill="#0f172a">Images (recipes, read-only)</text>
+  <text x="724" y="588" font-size="12" fill="#334155" font-family="Menlo, monospace">tomcat:9.0   ← FROM</text>
+  <text x="724" y="606" font-size="12" fill="#334155" font-family="Menlo, monospace">jenkins-app:1, :2 … :N</text>
+  <text x="724" y="628" font-size="11.5" fill="#475569">= Tomcat + my .war inside</text>
+  <text x="724" y="646" font-size="11.5" fill="#475569">(one tag per Jenkins build)</text>
+
+  <!-- arrow image stage -> images -->
+  <path d="M1160,398 L1160,472 Q1160,478 1154,478 L906,478 Q900,478 900,484 L900,540" fill="none" stroke="#0891b2" stroke-width="2.5" stroke-dasharray="6 4" marker-end="url(#a-cyan)"/>
+
+  <!-- arrow images -> container -->
+  <line x1="930" y1="600" x2="1004" y2="600" stroke="#0891b2" stroke-width="2.5" marker-end="url(#a-cyan)"/>
+  <text x="936" y="590" font-size="11.5" fill="#0e7490">docker run</text>
+
+  <!-- container -->
+  <rect x="1008" y="536" width="326" height="136" rx="10" fill="#ffffff" stroke="#16a34a" stroke-width="2.5"/>
+  <text x="1022" y="560" font-size="14" font-weight="700" fill="#0f172a">Container "jenkins-app" (the dish)</text>
+  <rect x="1022" y="572" width="298" height="86" rx="8" fill="#f0fdf4" stroke="#86efac" stroke-width="1.2"/>
+  <text x="1034" y="594" font-size="12.5" font-weight="700" fill="#166534">Tomcat listening on :8080</text>
+  <text x="1034" y="614" font-size="11.5" fill="#334155" font-family="Menlo, monospace">/usr/local/tomcat/webapps/</text>
+  <text x="1034" y="630" font-size="11.5" fill="#334155" font-family="Menlo, monospace">  jenkins-docker-cicd.war</text>
+  <text x="1034" y="649" font-size="11.5" fill="#475569">"Hello World!" page (index.jsp)</text>
+  <circle cx="1316" cy="554" r="12" fill="#0891b2"/><text x="1316" y="559" font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle">4</text>
+
+  <!-- arrow deploy stage -> container -->
+  <path d="M1300,398 L1300,532" fill="none" stroke="#16a34a" stroke-width="2.5" stroke-dasharray="6 4" marker-end="url(#a-green)"/>
+
+
+  <!-- ===================== ARROWS BETWEEN ZONES ===================== -->
+  <!-- ③ poll: jenkins -> github (outgoing) -->
+  <path d="M708,207 C660,207 650,230 612,230" fill="none" stroke="#d97706" stroke-width="3" stroke-dasharray="7 5" marker-end="url(#a-amber)"/>
+  <circle cx="630" cy="252" r="15" fill="#0f172a"/><text x="630" y="258" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle">3</text>
+
+  <!-- ④ clone: github -> stage1 -->
+  <path d="M592,330 C640,330 660,330 703,330" fill="none" stroke="#7c3aed" stroke-width="3" marker-end="url(#a-purple)"/>
+
+  <!-- labels for 3 -->
+  <text x="372" y="428" font-size="12.5" fill="#92400e"><tspan font-weight="700">③</tspan> Jenkins asks GitHub every ~2 min:</text>
+  <text x="372" y="446" font-size="12.5" fill="#92400e">"anything new?" (outgoing = allowed)</text>
+  <text x="372" y="470" font-size="12.5" fill="#5b21b6"><tspan font-weight="700">④</tspan> new commit → Jenkins clones the repo</text>
+
+  <!-- ⑧ tunnel: mac ssh box -> server door -> container port -->
+  <path d="M310,634 L650,634" fill="none" stroke="#0f172a" stroke-width="9" stroke-linecap="round"/>
+  <path d="M310,634 L650,634" fill="none" stroke="#38bdf8" stroke-width="4" stroke-linecap="round"/>
+  <path d="M664,634 C690,634 700,686 730,686 L1030,686 C1040,686 1044,682 1044,678" fill="none" stroke="#38bdf8" stroke-width="4" marker-end="url(#a-cyan)"/>
+  <text x="370" y="622" font-size="13" font-weight="700" fill="#0f172a">⑧ SSH tunnel (inside port 22)</text>
+  <text x="370" y="658" font-size="12" fill="#334155">Mac :8082 → server localhost:8082</text>
+  <text x="370" y="675" font-size="12" fill="#334155">→ container :8080 (Tomcat)</text>
+  <text x="370" y="692" font-size="12" fill="#334155">port 8082 is NOT open to the network</text>
+
+  <!-- port tag on container -->
+  <rect x="780" y="673" width="160" height="26" rx="13" fill="#0f172a"/>
+  <text x="860" y="691" font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="Menlo, monospace">127.0.0.1:8082→8080</text>
+
+  <!-- ===================== LEGEND ===================== -->
+  <rect x="30" y="730" width="1340" height="190" rx="16" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="50" y="760" font-size="16" font-weight="700" fill="#0f172a">Which module taught which part</text>
+
+  <circle cx="62" cy="790" r="12" fill="#64748b"/><text x="62" y="795" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">0</text>
+  <text x="82" y="795" font-size="13" fill="#0f172a"><tspan font-weight="700">Server prep:</tspan> UFW firewall, ports, image vs container</text>
+
+  <circle cx="62" cy="822" r="12" fill="#dc2626"/><text x="62" y="827" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">1</text>
+  <text x="82" y="827" font-size="13" fill="#0f172a"><tspan font-weight="700">Jenkins:</tspan> Java 21, service, SSH tunnel, first job</text>
+
+  <circle cx="62" cy="854" r="12" fill="#7c3aed"/><text x="62" y="859" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">2</text>
+  <text x="82" y="859" font-size="13" fill="#0f172a"><tspan font-weight="700">Git + GitHub:</tspan> repo, .gitignore, push, checkout</text>
+
+  <circle cx="62" cy="886" r="12" fill="#2563eb"/><text x="62" y="891" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">3</text>
+  <text x="82" y="891" font-size="13" fill="#0f172a"><tspan font-weight="700">Maven:</tspan> pom.xml, mvn clean package, .war</text>
+
+  <circle cx="512" cy="790" r="12" fill="#0891b2"/><text x="512" y="795" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">4</text>
+  <text x="532" y="795" font-size="13" fill="#0f172a"><tspan font-weight="700">Docker:</tspan> Tomcat, Dockerfile, build context, run</text>
+
+  <circle cx="512" cy="822" r="12" fill="#16a34a"/><text x="512" y="827" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">5</text>
+  <text x="532" y="827" font-size="13" fill="#0f172a"><tspan font-weight="700">Pipeline:</tspan> Jenkinsfile stages, docker group, redeploy</text>
+
+  <circle cx="512" cy="854" r="12" fill="#d97706"/><text x="512" y="859" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">6</text>
+  <text x="532" y="859" font-size="13" fill="#0f172a"><tspan font-weight="700">Automation:</tspan> Poll SCM, git push = auto deploy</text>
+
+  <circle cx="512" cy="886" r="12" fill="#0f172a"/><text x="512" y="891" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">#</text>
+  <text x="532" y="891" font-size="13" fill="#0f172a">Black circles = the order things happen (① → ⑧)</text>
+
+  <!-- kid analogy -->
+  <rect x="930" y="770" width="420" height="134" rx="12" fill="#fffbeb" stroke="#fcd34d" stroke-width="1.5"/>
+  <text x="948" y="796" font-size="14" font-weight="700" fill="#92400e">The bakery story (for a child)</text>
+  <text x="948" y="818" font-size="12.5" fill="#78350f">You write a recipe (code) on your Mac and put it</text>
+  <text x="948" y="836" font-size="12.5" fill="#78350f">in the shared recipe book (GitHub). The kitchen</text>
+  <text x="948" y="854" font-size="12.5" fill="#78350f">manager (Jenkins) checks the book, the mixer (Maven)</text>
+  <text x="948" y="872" font-size="12.5" fill="#78350f">bakes a cake (.war), it goes in a lunchbox (image), is</text>
+  <text x="948" y="890" font-size="12.5" fill="#78350f">served (container), and you eat via a secret hallway (tunnel).</text>
+</svg>

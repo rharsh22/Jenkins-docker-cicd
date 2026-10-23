@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" width="1200" height="760" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0f172a"/></marker>
+    <marker id="ar-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0284c7"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1200" height="760" fill="#ffffff"/>
+
+  <text x="30" y="44" font-size="24" font-weight="700" fill="#0f172a">How Safari on my Mac reaches the app (ports + SSH tunnel)</text>
+  <text x="30" y="70" font-size="14" fill="#475569">"localhost" always means "THIS machine": on the Mac it is the Mac, on the server it is the server, inside a container it is the container.</text>
+
+  <!-- MAC ZONE -->
+  <rect x="30" y="96" width="340" height="270" rx="14" fill="#f8fafc" stroke="#94a3b8" stroke-width="2"/>
+  <text x="48" y="124" font-size="17" font-weight="700" fill="#0f172a">💻 MY MAC</text>
+
+  <rect x="48" y="140" width="304" height="86" rx="10" fill="#ffffff" stroke="#0284c7" stroke-width="2"/>
+  <text x="64" y="166" font-size="15" font-weight="700" fill="#0f172a">Safari</text>
+  <text x="64" y="188" font-size="12.5" fill="#334155" font-family="Menlo, monospace">http://localhost:8082/</text>
+  <text x="64" y="206" font-size="12.5" fill="#334155" font-family="Menlo, monospace">      jenkins-docker-cicd/</text>
+  <circle cx="334" cy="158" r="13" fill="#0f172a"/><text x="334" y="163" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">1</text>
+
+  <line x1="200" y1="226" x2="200" y2="254" stroke="#0f172a" stroke-width="2" marker-end="url(#ar)"/>
+
+  <rect x="48" y="258" width="304" height="92" rx="10" fill="#0f172a"/>
+  <text x="64" y="284" font-size="15" font-weight="700" fill="#ffffff">ssh -L (the tunnel entrance)</text>
+  <text x="64" y="306" font-size="12" fill="#e2e8f0" font-family="Menlo, monospace">ssh -L 8082:localhost:8082 \</text>
+  <text x="64" y="323" font-size="12" fill="#e2e8f0" font-family="Menlo, monospace">       harsh-lab@&lt;SERVER_IP&gt;</text>
+  <text x="64" y="341" font-size="11.5" fill="#94a3b8">listens on the MAC's port 8082</text>
+  <circle cx="334" cy="276" r="13" fill="#38bdf8"/><text x="334" y="281" font-size="13" font-weight="700" fill="#0f172a" text-anchor="middle">2</text>
+
+  <!-- FIREWALL -->
+  <rect x="408" y="96" width="16" height="270" fill="#fecaca"/>
+  <rect x="408" y="282" width="16" height="40" fill="#16a34a"/>
+  <text x="416" y="276" font-size="11" font-weight="700" fill="#15803d" text-anchor="middle">22</text>
+  <text x="0" y="0" font-size="12" font-weight="700" fill="#b91c1c" transform="translate(402,190) rotate(-90)" text-anchor="middle">UFW: deny incoming</text>
+
+  <!-- TUNNEL -->
+  <path d="M352,302 L452,302" stroke="#0f172a" stroke-width="10" stroke-linecap="round"/>
+  <path d="M352,302 L448,302" stroke="#38bdf8" stroke-width="4" marker-end="url(#ar-blue)"/>
+  <text x="250" y="390" font-size="12.5" font-weight="700" fill="#0369a1" text-anchor="middle">encrypted, travels INSIDE port 22 (allowed)</text>
+
+  <!-- SERVER ZONE -->
+  <rect x="440" y="96" width="730" height="270" rx="14" fill="#f8fafc" stroke="#334155" stroke-width="2"/>
+  <text x="460" y="124" font-size="17" font-weight="700" fill="#0f172a">🖥️ HOME LAB SERVER</text>
+
+  <rect x="458" y="250" width="200" height="100" rx="10" fill="#ffffff" stroke="#334155" stroke-width="2"/>
+  <text x="474" y="275" font-size="15" font-weight="700" fill="#0f172a">sshd (SSH server)</text>
+  <text x="474" y="296" font-size="12" fill="#334155">connects to</text>
+  <text x="474" y="313" font-size="12" fill="#334155" font-family="Menlo, monospace">localhost:8082</text>
+  <text x="474" y="331" font-size="12" fill="#b45309">"localhost" = the SERVER</text>
+  <circle cx="640" cy="268" r="13" fill="#0f172a"/><text x="640" y="273" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">3</text>
+
+  <line x1="658" y1="300" x2="694" y2="300" stroke="#0f172a" stroke-width="2.5" marker-end="url(#ar)"/>
+
+  <rect x="698" y="250" width="226" height="100" rx="10" fill="#ecfeff" stroke="#0891b2" stroke-width="2"/>
+  <text x="714" y="275" font-size="15" font-weight="700" fill="#0f172a">Docker port mapping</text>
+  <text x="714" y="298" font-size="12.5" fill="#0e7490" font-family="Menlo, monospace">-p 127.0.0.1:8082:8080</text>
+  <text x="714" y="318" font-size="12" fill="#334155">server 8082 → container 8080</text>
+  <text x="714" y="336" font-size="12" fill="#334155">only reachable from the server</text>
+  <circle cx="906" cy="268" r="13" fill="#0f172a"/><text x="906" y="273" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">4</text>
+
+  <line x1="924" y1="300" x2="960" y2="300" stroke="#0f172a" stroke-width="2.5" marker-end="url(#ar)"/>
+
+  <rect x="964" y="150" width="190" height="200" rx="10" fill="#f0fdf4" stroke="#16a34a" stroke-width="2.5"/>
+  <text x="978" y="176" font-size="15" font-weight="700" fill="#0f172a">Container</text>
+  <text x="978" y="195" font-size="12.5" fill="#334155" font-family="Menlo, monospace">jenkins-app</text>
+  <text x="978" y="226" font-size="13" font-weight="700" fill="#166534">Tomcat on :8080</text>
+  <text x="978" y="246" font-size="11.5" fill="#334155">(fixed by Tomcat,</text>
+  <text x="978" y="262" font-size="11.5" fill="#334155">you never type it in</text>
+  <text x="978" y="278" font-size="11.5" fill="#334155">the browser)</text>
+  <text x="978" y="304" font-size="11.5" fill="#334155" font-family="Menlo, monospace">webapps/</text>
+  <text x="978" y="320" font-size="11.5" fill="#334155" font-family="Menlo, monospace">jenkins-docker-cicd.war</text>
+  <circle cx="1136" cy="168" r="13" fill="#0f172a"/><text x="1136" y="173" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">5</text>
+
+  <!-- Jenkins note inside server -->
+  <rect x="458" y="146" width="466" height="84" rx="10" fill="#fff7ed" stroke="#fdba74" stroke-width="1.5"/>
+  <text x="474" y="170" font-size="13.5" font-weight="700" fill="#9a3412">Same trick for Jenkins:</text>
+  <text x="474" y="192" font-size="12.5" fill="#7c2d12" font-family="Menlo, monospace">ssh -L 8080:localhost:8080 harsh-lab@&lt;SERVER_IP&gt;</text>
+  <text x="474" y="214" font-size="12.5" fill="#7c2d12">Jenkins listens on the server's 8080, so Tomcat can't use host 8080</text>
+
+  <!-- THREE LAYERS -->
+  <text x="30" y="430" font-size="17" font-weight="700" fill="#0f172a">A request must pass all 3 layers (any one failing = "can't connect")</text>
+
+  <rect x="30" y="446" width="365" height="120" rx="12" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="48" y="472" font-size="14.5" font-weight="700" fill="#166534">① App port</text>
+  <text x="48" y="494" font-size="12.5" fill="#334155">Where the program listens in its own world.</text>
+  <text x="48" y="514" font-size="12.5" fill="#334155">Tomcat = 8080, decided by the app.</text>
+  <text x="48" y="534" font-size="12.5" fill="#334155">Many containers can all use 8080 inside.</text>
+  <text x="48" y="554" font-size="12" fill="#64748b">Analogy: the room number inside a company.</text>
+
+  <rect x="417" y="446" width="365" height="120" rx="12" fill="#ecfeff" stroke="#0891b2" stroke-width="1.5"/>
+  <text x="435" y="472" font-size="14.5" font-weight="700" fill="#0e7490">② Docker mapping: -p HOST:CONTAINER</text>
+  <text x="435" y="494" font-size="12.5" fill="#334155">Left = server port YOU choose (must be free).</text>
+  <text x="435" y="514" font-size="12.5" fill="#334155">Right = app port (8080 for Tomcat).</text>
+  <text x="435" y="534" font-size="12.5" fill="#334155">Read it outside → inside.</text>
+  <text x="435" y="554" font-size="12" fill="#64748b">Analogy: the building switchboard number.</text>
+
+  <rect x="804" y="446" width="366" height="120" rx="12" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="822" y="472" font-size="14.5" font-weight="700" fill="#b91c1c">③ Who may knock (bind + firewall)</text>
+  <text x="822" y="494" font-size="12.5" fill="#334155">127.0.0.1 in front = only the server itself.</text>
+  <text x="822" y="514" font-size="12.5" fill="#334155">UFW lets only port 22 in from outside.</text>
+  <text x="822" y="534" font-size="12.5" fill="#334155">The tunnel enters through 22.</text>
+  <text x="822" y="554" font-size="12" fill="#64748b">Analogy: the security guard at the door.</text>
+
+  <!-- SAFE vs UNSAFE -->
+  <text x="30" y="612" font-size="17" font-weight="700" fill="#0f172a">The trap: Docker writes its own firewall rules BEFORE UFW</text>
+
+  <rect x="30" y="628" width="560" height="110" rx="12" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+  <text x="48" y="656" font-size="15" font-weight="700" fill="#166534">✅ SAFE (what we use)</text>
+  <text x="48" y="680" font-size="13" fill="#0f172a" font-family="Menlo, monospace">docker run -p 127.0.0.1:8082:8080 ...</text>
+  <text x="48" y="702" font-size="12.5" fill="#334155">Port exists only on the server's loopback.</text>
+  <text x="48" y="722" font-size="12.5" fill="#334155">Nobody on the network can reach it, only my SSH tunnel.</text>
+
+  <rect x="610" y="628" width="560" height="110" rx="12" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+  <text x="628" y="656" font-size="15" font-weight="700" fill="#b91c1c">❌ UNSAFE</text>
+  <text x="628" y="680" font-size="13" fill="#0f172a" font-family="Menlo, monospace">docker run -p 8082:8080 ...   (= 0.0.0.0)</text>
+  <text x="628" y="702" font-size="12.5" fill="#334155">Listens on every network card. UFW says "deny",</text>
+  <text x="628" y="722" font-size="12.5" fill="#334155">Docker says "allow", and Docker wins → open to the network.</text>
+</svg>
